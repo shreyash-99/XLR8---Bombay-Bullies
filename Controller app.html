@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+</head>
+<style>
+  .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: rgb(234, 255, 0);
+    border-radius: 40px;
+}
+body{
+  background-color: black;
+}
+
+
+</style>
+
+</br></br></br></br></br></br>
+
+<div style="text-align:center;">
+	<button class="unselectable" ontouchstart="up()" ontouchend="off()" style="height:120px;width:120px;"> Up </button>
+</div>
+
+</br>
+
+  <div style="float:left;">
+    <button class="unselectable" ontouchstart="left()" ontouchend="off()" style="height:120px;width:120px;"> Left </button>
+  </div>
+  
+  <div style="float:right;">
+    <button class="unselectable" ontouchstart="right()" ontouchend="off()" style="height:120px;width:120px;"> Right </button>
+  </div>
+  
+
+  </br>
+<br><br><br><br><br><br>
+<div style="text-align:center;">
+        <button class="unselectable" ontouchstart="down()" ontouchend="off()" style="height:120px;width:120px;"> Down </button>                                                    </div>
+<br><br><br><br><br><br>
+        <div style="text-align:center;">
+          <button class="unselectable" id="toggle" ontouchstart="toggle()" style="height:120px;width:120px;">Fast
+      </button>
+      
+        </div>
+<script>
+    var fast = 1;
+    var url = "http://192.168.4.1/control?";
+    function up(){
+        fetch(url+"up")
+    }
+    
+    function down(){
+        fetch(url+"down")
+    }
+
+    function left(){
+        fetch(url+"left")
+    }
+    
+    function right(){
+        fetch(url+"right")
+    }
+
+    function off(){
+        fetch(url+"off")
+    }
+
+    function toggle(){
+        if(fast==1){
+	   fast=0;
+           document.getElementById("toggle").innerHTML="Slow"
+	   fetch(url+"slow");
+	}else{
+           fast=1;                                                    document.getElementById("toggle").innerHTML="Fast"
+           fetch(url+"fast");
+	}
+    }
+</script>
+</body>
+</html>
